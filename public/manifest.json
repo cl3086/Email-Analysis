@@ -1,0 +1,30 @@
+{
+  "short_name": "Email Analysis",
+  "name": "Email Analysis",
+  "manifest_version": 2,
+  "icons": {
+    "16": "images/16email.png",
+    "48": "images/48email.png",
+    "128": "images/128email.png"
+  },
+  "browser_action": {
+
+  },
+  "version": "1.0",
+  "permissions": [
+      "tabs"
+  ],
+  "background": {
+      "scripts": ["background.js"]
+  },
+  "web_accessible_resources": ["index.html"],
+  "content_scripts": [
+      {
+          "matches": [
+              "<all_urls>"
+          ],
+          "js": ["content.js"]
+      }
+  ],
+  "content_security_policy": "script-src 'self' https://maps.googleapis.com; object-src 'self'"
+}
