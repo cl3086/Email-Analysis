@@ -32,6 +32,18 @@ class Map extends Component {
         }
     }
 
+    getLabelAnchor() {
+        return new google.maps.Point(0,0)
+    }
+
+    getLabelStyle() {
+        return {
+            backgroundColor: '#fff600',
+            padding: '10px',
+            fontSize: '15px'
+        }
+    }
+
     getGoogleMap() {
         let positions = [
             {lat: this.state.lat, lng: this.state.lng},
@@ -44,9 +56,15 @@ class Map extends Component {
                 defaultZoom={ 13 }
                 defaultOptions={ { styles: MapStyles } }
             >
-                <Marker position={ { lat: this.state.lat, lng: this.state.lng }}/>
-                <Marker position={ { lat: this.state.lat+0.01, lng: this.state.lng+0.01 }}/>
-                <Marker position={ { lat: this.state.lat-0.01, lng: this.state.lng-0.01 }}/>
+                <MarkerWithLabel key={1} position={ { lat: this.state.lat, lng: this.state.lng } } labelAnchor={ this.getLabelAnchor() } labelStyle={ this.getLabelStyle() }>
+                    <div>lat: { this.state.lat }, lng: { this.state.lng }</div>
+                </MarkerWithLabel>
+                <MarkerWithLabel key={2} position={ { lat: this.state.lat+0.01, lng: this.state.lng+0.01 } } labelAnchor={ this.getLabelAnchor() } labelStyle={this.getLabelStyle()}>
+                    <div>lat: { this.state.lat+0.01 }, lng: { this.state.lng+0.01 }</div>
+                </MarkerWithLabel>
+                <MarkerWithLabel key={3} position={ { lat: this.state.lat-0.01, lng: this.state.lng-0.01 } } labelAnchor={ this.getLabelAnchor() } labelStyle={this.getLabelStyle()}>
+                    <div>lat: { this.state.lat-0.01 }, lng: { this.state.lng-0.01 }</div>
+                </MarkerWithLabel>
                 <Polyline path={positions} options={ this.getPolyLineStyle() }/>
             </GoogleMap>
         ))
