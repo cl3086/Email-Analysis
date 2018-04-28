@@ -1,0 +1,83 @@
+#attachments {
+  float: left;
+  width: 500px;
+  height: 500px;
+  margin-top: 20px;
+  background-color: #fffdd0;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 15px;
+  overflow-y: auto;
+}
+
+#analysisDiv {
+  padding: 10px;
+}
+
+.permalink {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #cf493b;
+}
+
+.checkOutDiv {
+  margin-bottom: 10px;
+}
+
+.hash {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 0px 5px;
+  font-size: 14px;
+}
+
+.scanner {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.goodText {
+  font-weight: bold;
+  color: #1dff00;
+  margin-left: 5px;
+}
+
+.goodResult {
+  font-weight: bold;
+  color: #1dff00;
+  margin-left: 5px;
+  padding: 0px 0px 5px 0px;
+}
+
+.badText {
+  font-weight: bold;
+  color: #ff1500;
+  margin-left: 5px;
+}
+
+.badResult {
+  font-weight: bold;
+  color: #ff1500;
+  margin-left: 5px;
+  padding: 0px 0px 0px 5px;
+}
+
+.fileInfo {
+  font-weight: bold;
+}
+
+.analyzeButton {
+  background-color: #cf493b;
+  font-weight: bold;
+  color: white;
+  height: 25px;
+  width: 150px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.analyzeButton:hover {
+  cursor: pointer;
+}

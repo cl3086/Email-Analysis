@@ -1,32 +1,75 @@
-import React, { Component } from 'react'
+/*global chrome*/
+
 import './App.css'
-import Map from './map'
+import ErrorMessage from './error_message'
+import Gmail from './gmail'
+import GoogleLogin from 'react-google-login'
+import React, { Component } from 'react'
+import config from './config'
 
 class App extends Component {
     constructor() {
         super()
         this.state = {
-            counter: 1
+            loggedInFlag: false,
+            errorFlag: false,
+            errorMessage: '',
+            userInfo: null
         }
     }
 
-    handleClick(event) {
-        this.setState({
-            counter: this.state.counter + 1
-        })
+    successLogin(res) {
+        this.setState({ loggedInFlag: true, userInfo: res })
+    }
+
+    failLogin(err) {
+        this.setState({ errorFlag: true, errorMessage: err })
+    }
+
+    getGoogleLoginButton() {
+        return (
+            <div id='loginDiv'>
+                <button id='login' onClick={ this.getToken.bind(this) }>
+                    Login
+                </button>
+                <GoogleLogin
+                  clientId={ config.googleClientId }
+                  buttonText='Login'
+                  onSuccess={ this.successLogin.bind(this) }
+                  onFailure={ this.failLogin.bind(this) }
+                />
+            </div>
+        )
+    }
+
+    getToken() {
+      chrome.identity.getAuthToken({ interactive: true }, (token) => {
+        this.setState({ loggedInFlag: true, token })
+      })
+    }
+
+    getErrorMessage() {
+        return `Unable to login! Please try again or clear your cache!
+                ${ this.state.errorMessage }`
     }
 
     render() {
+        if(!this.state.loggedInFlag) {
+            return this.getGoogleLoginButton()
+        }
         return (
           <div>
-            <Map/>
-            <button onClick={ this.handleClick.bind(this) }>{this.state.counter}</button>
+            <ErrorMessage
+              errorFlag={ this.state.errorFlag }
+              errorMessage={ this.getErrorMessage() }
+            />
+          <Gmail token={this.state.token}/>
           </div>
         )
+
     }
 }
 
 export default App
-
-// google maps api key: AIzaSyCg9rksfq9p3Y5vpPWPBVXbbi38w_GSDOE
-// gmail api: 505532977879-0bbfrj8bcbscj7nflulcp9h1amok0vkh.apps.googleusercontent.com
+// <Gmail token={this.state.userInfo.accessToken}/>
+// <Gmail token={this.state.token}/>

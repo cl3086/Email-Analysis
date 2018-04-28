@@ -3,10 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/googlemaps": "^3.30.8",
+    "@types/markerclustererplus": "^2.1.33",
+    "ajv": "^6.4.0",
+    "file-saver": "^1.3.8",
+    "hoek": "^5.0.3",
+    "js-base64": "^2.4.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-google-login": "^3.1.0",
     "react-google-maps": "^9.4.5",
+    "react-iframe": "^1.1.0",
+    "react-infinite-scroller": "^1.1.4",
     "react-scripts": "1.1.1",
+    "read-yaml": "^1.1.0",
     "recompose": "^0.26.0"
   },
   "scripts": {
@@ -14,5 +24,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.5"
   }
 }

@@ -1,0 +1,71 @@
+#emailBox {
+    width: 500px;
+    height: 600px;
+    overflow: auto;
+    border-right: 1px solid #CE4136;
+    float: left;
+    padding-right: 25px;
+    overflow-x: hidden;
+}
+
+#container {
+  width: 500px;
+  height: calc(100%);
+}
+
+.email {
+    border: 1px solid white;
+    padding: 10px;
+    background-color: #CE4136;
+    border-radius: 25px;
+    margin: 25px 15px;
+}
+
+.fromText {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.subjectText {
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+
+.snippetText {
+    font-size: 14px;
+}
+
+#intro {
+    text-align: center;
+    color: #fff600;
+    font-size: 25px;
+}
+
+#title {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+#body {
+    width: 1250px;
+    margin: 0 auto;
+}
+
+#selectedEmail {
+  border: 2px solid yellow;
+}
+
+.loading {
+  width: 150px;
+  margin: 20% auto;
+  color: white;
+}
+
+#emailLoading {
+  color: white;
+  margin-left: 30px;
+  width: 150px;
+  height: 40px;
+}
