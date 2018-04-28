@@ -29,15 +29,9 @@ class App extends Component {
     getGoogleLoginButton() {
         return (
             <div id='loginDiv'>
-                <button id='login' onClick={ this.getToken.bind(this) }>
-                    Login
-                </button>
-                <GoogleLogin
-                  clientId={ config.googleClientId }
-                  buttonText='Login'
-                  onSuccess={ this.successLogin.bind(this) }
-                  onFailure={ this.failLogin.bind(this) }
-                />
+              <button id='login' onClick={ this.getToken.bind(this) }>
+                  Login
+              </button>
             </div>
         )
     }
@@ -71,5 +65,3 @@ class App extends Component {
 }
 
 export default App
-// <Gmail token={this.state.userInfo.accessToken}/>
-// <Gmail token={this.state.token}/>
